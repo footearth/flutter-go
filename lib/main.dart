@@ -17,17 +17,17 @@ import 'package:flutter/material.dart' show
 import 'package:fluro/fluro.dart' show
   Router
 ;
-import 'package:flutter_go/routers/routers.dart' show
-  Routes
-;
-import 'package:flutter_go/utils/provider.dart' show
+import 'utils/provider.dart' show
   Provider
-;
-import 'routers/application.dart' show
-  Application
 ;
 import 'utils/shared_preferences.dart' show
   SpUtil
+;
+import 'routers/routers.dart' show
+  Routes
+;
+import 'routers/application.dart' show
+  Application
 ;
 import 'views/first_page/home.dart' show
   AppPage
@@ -47,7 +47,7 @@ var db
 class MyApp extends StatelessWidget {
 
   MyApp()  {
-    final router = new Router()
+    final router = Router()
     ;
     Routes.configureRoutes( router )
     ;
@@ -68,11 +68,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) =>
 
-    new MaterialApp(
+    MaterialApp(
 
       title: 'title'
 
-    , theme: new ThemeData(
+    , theme: ThemeData(
 
         primaryColor: Color( ThemeColor )
       , backgroundColor: Color( 0xFFEFEFEF )
@@ -91,7 +91,7 @@ class MyApp extends StatelessWidget {
         )
       )
 
-    , home: new Scaffold(
+    , home: Scaffold(
         body: showWelcomePage()
       )
 
@@ -104,19 +104,19 @@ class MyApp extends StatelessWidget {
 
 void main() async {
 
-  final provider = new Provider()
+  final provider = Provider()
   ;
   await provider.init( true )
   ;
 
   sp = await SpUtil.getInstance()
   ;
-  new SearchHistoryList( sp )
+  SearchHistoryList( sp )
   ;
 
   db = Provider.db
   ;
 
-  runApp( new MyApp() )
+  runApp( MyApp() )
   ;
 }
