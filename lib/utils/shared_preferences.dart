@@ -1,120 +1,173 @@
-
 import 'dart:async';
+import 'dart:core';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
-export 'package:flutter_go/resources/shared_preferences_keys.dart';
+export '../resources/shared_preferences_keys.dart';
 
 /// 用来做shared_preferences的存储
 class SpUtil {
-  static SpUtil _instance;
-  static Future<SpUtil> get instance async {
-    return await getInstance();
-  }
 
-  static SharedPreferences _spf;
+  static SpUtil _instance
+  ;
+  static Future<SpUtil> get instance async =>
+    await getInstance()
+  ;
 
+  static SharedPreferences _spf
+  ;
 
-  SpUtil._();
+  SpUtil._()
+  ;
 
   Future _init() async {
-    _spf = await SharedPreferences.getInstance();
+    _spf = await
+      SharedPreferences
+      .getInstance()
+    ;
   }
 
-  static Future<SpUtil> getInstance() async  {
+  static Future<SpUtil> getInstance() async {
+
     if (_instance == null) {
-      _instance = new SpUtil._();
-      await _instance._init();
-
+      _instance = new SpUtil._()
+      ;
+      await _instance._init()
+      ;
     }
-    return _instance;
+    return _instance
+    ;
   }
 
-  static bool _beforeCheck() {
-    if (_spf == null) {
-      return true;
-    }
-    return false;
-  }
+  static bool _beforeCheck() =>
+    _spf == null
+    ? true
+    : false
+  ;
+
   // 判断是否存在数据
   bool hasKey(String key) {
-    Set keys = getKeys();
-    return keys.contains(key);
+    Set keys = getKeys()
+    ;
+    return keys.contains(key)
+    ;
   }
 
-  Set<String> getKeys() {
-    if (_beforeCheck()) return null;
-    return _spf.getKeys();
-  }
+  Set<String> getKeys() =>
+    _beforeCheck()
+    ? null
+    : _spf.getKeys()
+  ;
 
-  get(String key) {
-    if (_beforeCheck()) return null;
-    return _spf.get(key);
-  }
+  get(String key) =>
+    _beforeCheck()
+    ? null
+    : _spf.get(key)
+  ;
 
-  getString(String key) {
-    if (_beforeCheck()) return null;
-    return _spf.getString(key);
-  }
+  getString(String key) =>
+    _beforeCheck()
+    ? null
+    : _spf.getString(key)
+  ;
 
-  Future<bool> putString(String key, String value) {
-    if (_beforeCheck()) return null;
-    return _spf.setString(key, value);
-  }
+  Future<bool> putString(
+    String key
+  , String value
+  ) =>
+    _beforeCheck()
+    ? null
+    : _spf.setString(key, value)
+  ;
 
-  bool getBool(String key) {
-    if (_beforeCheck()) return null;
-    return _spf.getBool(key);
-  }
+  bool getBool(
+    String key
+  ) =>
+    _beforeCheck()
+    ? null
+    : _spf.getBool(key)
+  ;
 
-  Future<bool> putBool(String key, bool value) {
-    if (_beforeCheck()) return null;
-    return _spf.setBool(key, value);
-  }
+  Future<bool> putBool(
+    String key
+  , bool value
+  ) =>
+    _beforeCheck()
+    ? null
+    : _spf.setBool(key, value)
+  ;
 
-  int getInt(String key) {
-    if (_beforeCheck()) return null;
-    return _spf.getInt(key);
-  }
+  int getInt(
+    String key
+  ) =>
+    _beforeCheck()
+    ? null
+    : _spf.getInt(key)
+  ;
 
-  Future<bool> putInt(String key, int value) {
-    if (_beforeCheck()) return null;
-    return _spf.setInt(key, value);
-  }
+  Future<bool> putInt(
+    String key
+  , int value
+  ) =>
+    _beforeCheck()
+    ? null
+    : _spf.setInt(key, value)
+  ;
 
-  double getDouble(String key) {
-    if (_beforeCheck()) return null;
-    return _spf.getDouble(key);
-  }
+  double getDouble(
+    String key
+  ) =>
+    _beforeCheck()
+    ? null
+    : _spf.getDouble(key)
+  ;
 
-  Future<bool> putDouble(String key, double value) {
-    if (_beforeCheck()) return null;
-    return _spf.setDouble(key, value);
-  }
+  Future<bool> putDouble(
+    String key
+  , double value
+  ) =>
+    _beforeCheck()
+    ? null
+    : _spf.setDouble(key, value)
+  ;
 
-  List<String> getStringList(String key) {
-    return _spf.getStringList(key);
-  }
+  List<String> getStringList(
+    String key
+  ) =>
+    _beforeCheck()
+    ? null
+    : _spf.getStringList(key)
+  ;
 
-  Future<bool> putStringList(String key, List<String> value) {
-    if (_beforeCheck()) return null;
-    return _spf.setStringList(key, value);
-  }
+  Future<bool> putStringList(
+    String key
+  , List<String> value
+  ) =>
+    _beforeCheck()
+    ? null
+    : _spf.setStringList(key, value)
+  ;
 
-  dynamic getDynamic(String key) {
-    if (_beforeCheck()) return null;
-    return _spf.get(key);
-  }
+  dynamic getDynamic(
+    String key
+  ) =>
+    _beforeCheck()
+    ? null
+    : _spf.get(key)
+  ;
 
+  Future<bool> remove(
+    String key
+  ) =>
+    _beforeCheck()
+    ? null
+    : _spf.remove( key )
+  ;
 
+  Future<bool> clear() =>
+    _beforeCheck()
+    ? null
+    : _spf.clear()
+  ;
 
-  Future<bool> remove(String key) {
-    if (_beforeCheck()) return null;
-    return _spf.remove(key);
-  }
-
-  Future<bool> clear() {
-    if (_beforeCheck()) return null;
-    return _spf.clear();
-  }
 }
