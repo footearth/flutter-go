@@ -1,8 +1,11 @@
-import 'package:flutter/material.dart'
+import 'package:flutter/material.dart' show
+  TabController
 ;
-import 'package:fluro/fluro.dart'
+import 'package:fluro/fluro.dart' show
+  Router
 ;
-import 'package:flutter_go/utils/shared_preferences.dart'
+import '../utils/shared_preferences.dart' show
+  SpUtil
 ;
 
 class Application {
@@ -15,9 +18,10 @@ class Application {
   ;
 
   static Map<String, String> github = {
-    'widgetsURL':'https://github.com/alibaba/flutter-go/blob/develop/lib/widgets/'
-  // , 'develop':'https://github.com/alibaba-paimai-frontend/flutter-common-widgets-app/tree/develop/lib/widgets/',
-  // , 'master':'https://github.com/alibaba-paimai-frontend/flutter-common-widgets-app/tree/master/lib/widgets/'
-  };
+    'widgetsURL': 'https://github.com/alibaba/flutter-go/blob/develop/lib/widgets/'
+  // , 'develop': 'https://github.com/alibaba-paimai-frontend/flutter-common-widgets-app/tree/develop/lib/widgets/'
+  // , 'master': 'https://github.com/alibaba-paimai-frontend/flutter-common-widgets-app/tree/master/lib/widgets/'
+  }
+  ;
 
 }

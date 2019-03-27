@@ -3,11 +3,10 @@ import 'package:flutter/material.dart' show
 , Widget
 
 , BuildContext
-, MaterialApp
-, Scaffold
-
 , runApp
 
+, MaterialApp
+, Scaffold
 , ThemeData
 , IconThemeData
 , TextTheme
@@ -32,7 +31,7 @@ import 'routers/application.dart' show
 import 'views/first_page/home.dart' show
   AppPage
 ;
-import 'package:flutter_go/model/search_history.dart' show
+import 'model/search_history.dart' show
   SearchHistoryList
 ;
 //import 'views/welcome_page/index.dart';
@@ -46,7 +45,7 @@ var db
 
 class MyApp extends StatelessWidget {
 
-  MyApp()  {
+  MyApp() {
     final router = Router()
     ;
     Routes.configureRoutes( router )

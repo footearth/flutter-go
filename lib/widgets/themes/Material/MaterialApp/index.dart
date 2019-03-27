@@ -3,16 +3,23 @@
 /// @Last Modified by: 一凨
 /// @Last Modified time: 2019-01-07 15:52:45
 
-import 'package:flutter/material.dart';
-
-import 'package:flutter_go/components/widget_demo.dart';
+import 'package:flutter/material.dart' show
+  StatefulWidget
+, Widget
+, State
+, BuildContext
+;
+import 'package:flutter_go/components/widget_demo.dart' show
+  WidgetDemo
+;
 
 const String content0 = '''
 ### **简介**
 > MaterialApp 代表 Material  设计风格的应用
 - 包含许多 Material设计风格所需要的一些基本控件
 - 在 WidgetsApp 中通过添加一些特定与 Material 设计风格的属性
-''';
+'''
+;
 
 const String content1 = '''
 ### **基本用法**
@@ -29,25 +36,32 @@ const String content1 = '''
 - debugShowMaterialGrid ： 是否显示 Material design 基础布局网格，用来调试 UI 的工具
 - showPerformanceOverlay ： 显示性能标签
 - checkerboardRasterCacheImages 、showSemanticsDebugger、debugShowCheckedModeBanner 各种调试开关
-
-''';
+'''
+;
 
 class Demo extends StatefulWidget {
-  static const String routeName = '/themes/Material/MaterialApp';
-  _DemoState createState() => _DemoState();
+
+  static const String routeName =
+    '/themes/Material/MaterialApp'
+  ;
+  _DemoState createState() => _DemoState()
+  ;
 }
 
 class _DemoState extends State<Demo> {
+
   @override
-  Widget build(BuildContext context) {
-    return WidgetDemo(
+  Widget build(BuildContext context) =>
+    WidgetDemo(
       contentList: [
-        content0,
-        content1,
-      ],
-      title: 'MaterialApp',
-      docUrl: 'https://docs.flutter.io/flutter/material/MaterialApp-class.html',
-      codeUrl: 'themes/Material/MaterialApp/demo.dart',
-    );
-  }
+        content0
+      , content1
+      ]
+    , title: 'MaterialApp'
+    , docUrl:
+        'https://docs.flutter.io/flutter/material/MaterialApp-class.html'
+    , codeUrl: 'themes/Material/MaterialApp/demo.dart'
+    )
+  ;
+
 }
