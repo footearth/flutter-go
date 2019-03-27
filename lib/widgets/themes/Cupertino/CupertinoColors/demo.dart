@@ -5,41 +5,97 @@
 /// email: zhu.yan@alibaba-inc.com
 /// target: CupertinoColors 的示例
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show
+  Colors
+, StatefulWidget 
+, State
+, Widget
+, Container
+, MediaQuery
+, EdgeInsets
+, Text
+, TextStyle
+, BoxDecoration
+, BuildContext
+, Column
+;
+import 'package:flutter/cupertino.dart' show
+  CupertinoColors
+;
 
 // Checkbox 默认按钮的实例
 // index 当前checkbox 的索引值
 class CupertinoColorsFullDefault extends StatefulWidget {
-  const CupertinoColorsFullDefault() : super();
+  const CupertinoColorsFullDefault()
+  : super()
+  ;
 
   @override
-  State<StatefulWidget> createState() => _CupertinoColorsFullDefault();
+  State<StatefulWidget> createState() =>
+    _CupertinoColorsFullDefault()
+  ;
 }
 
 // CupertinoColors 默认的实例,有状态
 class _CupertinoColorsFullDefault extends State {
 
-  Widget setColorsView(cupertinoColors,String colorName){
-    return Container(
-        width: MediaQuery.of(context).size.width-100,
-        padding: const EdgeInsets.all(10.0),
-        child:Text(colorName,style:TextStyle(color:Colors.white)),
-        decoration:BoxDecoration(color: cupertinoColors)
-    );
-  }
+  Widget setColorsView(
+    cupertinoColors
+  , String colorName
+  ) => Container(
+    width:
+      MediaQuery.of(context)
+      .size.width-100
+  , padding:
+      const EdgeInsets.all(10.0)
+  , child: Text(
+      colorName
+    , style: TextStyle(
+        color: Colors.white
+      )
+    )
+  , decoration: BoxDecoration(
+      color: cupertinoColors
+    )
+  )
+  ;
+
   @override
-  Widget build(BuildContext context) {
-    return Column(
+  Widget build(BuildContext context) =>
+    Column(
       children: <Widget>[
-        setColorsView(CupertinoColors.activeBlue,'activeBlue'),
-        setColorsView(CupertinoColors.activeGreen,'activeGreen'),
-        setColorsView(CupertinoColors.black,'black'),
-        setColorsView(CupertinoColors.destructiveRed,'destructiveRed'),
-        setColorsView(CupertinoColors.inactiveGray,'inactiveGray'),
-        setColorsView(CupertinoColors.lightBackgroundGray,'lightBackgroundGray'),
-        setColorsView(CupertinoColors.white,'white')
-      ],
-    );
-  }
+        setColorsView(
+          CupertinoColors.activeBlue
+        , 'activeBlue'
+        )
+      , setColorsView(
+          CupertinoColors.activeGreen
+        , 'activeGreen'
+        )
+      , setColorsView(
+          CupertinoColors.black
+        , 'black'
+        )
+      ,
+        setColorsView(
+          CupertinoColors.destructiveRed
+        , 'destructiveRed'
+        )
+      , setColorsView(
+          CupertinoColors.inactiveGray
+        , 'inactiveGray'
+        )
+      , setColorsView(
+          CupertinoColors.lightBackgroundGray
+        , 'lightBackgroundGray'
+        )
+      ,
+        setColorsView(
+          CupertinoColors.white
+        , 'white'
+        )
+      ]
+    )
+  ;
+
 }

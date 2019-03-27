@@ -71,7 +71,9 @@ class _CupertinoAppFullDefault extends State {
         HomePage()
     , opaque: false
     , //跳转动画
-      transitionDuration: Duration(milliseconds: 200)
+      transitionDuration: Duration(
+        milliseconds: 200
+      )
     , transitionsBuilder: (
         ___
       , Animation<double> animation
@@ -192,7 +194,7 @@ class _CupertinoAppFullDefault extends State {
       , supportedLocales: [
           // 传入支持的语种数组
           const Locale('uok')
-        , const Locale('meg'),
+        , const Locale('meg')
         ]
       )
     )
