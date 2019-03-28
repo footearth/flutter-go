@@ -5,9 +5,42 @@
 /// email: zhu.yan@alibaba-inc.com
 /// target: CupertinoPicker 的示例
 
-import 'package:flutter/cupertino.dart'
+import 'package:flutter/material.dart' show
+  StatefulWidget
+, State
+, Widget
+, Container
+, BoxDecoration
+, Border
+, BorderSide
+, Color
+, Padding
+, EdgeInsets 
+, SafeArea
+, Row
+, MainAxisAlignment
+, DefaultTextStyle
+, TextStyle
+, GestureDetector
+, BuildContext
+, FixedExtentScrollController
+, Text
+, SizedBox
+, MediaQuery
+, DecoratedBox
+, ListView
 ;
-import 'package:intl/intl.dart'
+import 'package:flutter/cupertino.dart' show
+  CupertinoPicker
+, CupertinoColors
+, CupertinoTimerPicker
+, CupertinoDatePicker
+, CupertinoDatePickerMode
+, CupertinoPageScaffold
+, showCupertinoModalPopup
+;
+import 'package:intl/intl.dart' show
+  DateFormat
 ;
 
 const double _kPickerSheetHeight = 216.0
