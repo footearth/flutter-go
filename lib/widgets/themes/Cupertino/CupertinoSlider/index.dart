@@ -1,7 +1,16 @@
-import 'package:flutter/material.dart';
-
-import 'package:flutter_go/components/widget_demo.dart';
-import 'demo.dart';
+import 'package:flutter/material.dart' show
+  StatefulWidget
+, State
+, Widget
+, BuildContext
+, SizedBox
+;
+import 'package:flutter_go/components/widget_demo.dart' show
+  WidgetDemo
+;
+import 'demo.dart' show
+  CupertinoSliderDemo
+;
 
 const Text0 = '''
 ### **简介**
@@ -12,28 +21,34 @@ CupertinoSlider 是ios风格的Slide组件,用来选择连续性的或者非连�
 ### **基本用法**
 
 > 与 Slider 相同, 具体查看Slider组件
-''';
+'''
+;
 
 class Demo extends StatefulWidget {
   static const String routeName =
-      '/element/themes/Cupertino/CupertinoSlider';
+    '/element/themes/Cupertino/CupertinoSlider'
+  ;
 
   @override
-  State<StatefulWidget> createState() => _DemoState();
+  State<StatefulWidget> createState() => _DemoState()
+  ;
 }
 
 class _DemoState extends State<Demo> {
+
   @override
-  Widget build(BuildContext context) {
-    return WidgetDemo(
-      title: 'CupertinoSlider',
-      codeUrl: 'themes/Cupertino/CupertinoSlider/demo.dart',
-      docUrl: 'https://docs.flutter.io/flutter/cupertino/CupertinoSlider-class.html',
-      contentList: [
-        Text0,
-        CupertinoSliderDemo(),
-        SizedBox(height: 100),
-      ],
-    );
-  }
+  Widget build(BuildContext context) =>
+    WidgetDemo(
+      title: 'CupertinoSlider'
+    , codeUrl: 'themes/Cupertino/CupertinoSlider/demo.dart'
+    , docUrl:
+        'https://docs.flutter.io/flutter/cupertino/CupertinoSlider-class.html'
+    , contentList: [
+        Text0
+      , CupertinoSliderDemo()
+      , SizedBox(height: 100)
+      ]
+    )
+  ;
+
 }

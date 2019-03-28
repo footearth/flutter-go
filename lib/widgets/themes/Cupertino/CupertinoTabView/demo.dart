@@ -5,88 +5,126 @@
 /// email: sanfan.hx@alibaba-inc.com
 /// target:  CupertinoTabBar
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show
+  StatefulWidget
+, State 
+, Widget
+, BuildContext
+, SizedBox 
+, BottomNavigationBarItem
+, Text
+, Icon 
+, Icons
+, Center
+, Column
+, Navigator
+;
+import 'package:flutter/cupertino.dart' show
+  CupertinoTabScaffold
+, CupertinoTabBar
+, CupertinoTabView
+, CupertinoPageScaffold
+, CupertinoNavigationBar 
+, CupertinoButton
+;
 
 class CupertinoTabScaffoldDemo extends StatefulWidget {
-  _Demo createState() => _Demo();
+  _Demo createState() =>
+    _Demo()
+  ;
 }
 
 class _Demo extends State<CupertinoTabScaffoldDemo> {
-  int index = 0;
+
+  int index = 0
+  ;
 
   changeIndex(int _index) {
-    this.setState(() {
-      index = _index;
-    });
+    this.setState( () {
+      index = _index
+      ;
+    }
+    )
+    ;
   }
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 500,
-      child: CupertinoTabScaffold(
+
+  Widget build(BuildContext context) =>
+    SizedBox(
+      height: 500
+    , child: CupertinoTabScaffold(
         tabBar: CupertinoTabBar(
           items: <BottomNavigationBarItem> [
             BottomNavigationBarItem(
-              title: Text("A"),
-              icon: Icon(Icons.add),
-            ),
-            BottomNavigationBarItem(
-              title: Text("B"),
-              icon: Icon(Icons.add),
+              title: Text("A")
+            , icon: Icon(Icons.add)
             )
-          ],
-        ),
-        tabBuilder: (BuildContext context, int index) {
-          return CupertinoTabView(
+          , BottomNavigationBarItem(
+              title: Text("B")
+            , icon: Icon(Icons.add)
+            )
+          ]
+        )
+      , tabBuilder: (
+          BuildContext context, int index
+        ) =>
+          CupertinoTabView(
+
             routes: {
-              '/': (context) {
-                return CupertinoPageScaffold(
-                    navigationBar: CupertinoNavigationBar(
-                      middle: Text('Page 1 of tabView $index'),
-                    ),
-                  child: Center(
-                    child: Text('CupertinoTabView /'),
-                  ),
-                );
-              },
-              '/home': (context) {
-                return CupertinoPageScaffold(
+              '/': (context) =>
+                CupertinoPageScaffold(
                   navigationBar: CupertinoNavigationBar(
-                    middle: Text('Page 1 of tabView $index'),
-                  ),
-                  child: Center(
-                    child: Text('CupertinoTabView home'),
-                  ),
-                );
-              }
-            },
-            builder: (BuildContext context) {
-              return CupertinoPageScaffold(
-                navigationBar: CupertinoNavigationBar(
-                  middle: Text('Page 1 of tabView $index'),
-                ),
-                  child: Column(
-                    children: <Widget>[
-                      SizedBox(height: 100),
-                      CupertinoButton(
-                        child: Text('Next page is self home page'),
-                        onPressed: () {
-                          Navigator.of(context).pushNamed('/home');
-                        },
-                      ),
-                      CupertinoButton(
-                        child: Text('Next page is home home page'),
-                        onPressed: () {
-                          Navigator.of(context, rootNavigator: true).pushNamed('/home');
-                        },
-                      )
-                    ],
+                    middle: Text('Page 1 of tabView $index')
                   )
-              );
-            },
-          );
-        },
-      ),
-    );
-  }
+                , child: Center(
+                    child: Text('CupertinoTabView /')
+                  )
+                )
+            ,
+              '/home': (context) =>
+                CupertinoPageScaffold(
+                  navigationBar: CupertinoNavigationBar(
+                    middle: Text('Page 1 of tabView $index')
+                  )
+                , child: Center(
+                    child: Text('CupertinoTabView home')
+                  )
+                )
+              
+            }
+          ,
+            builder: (BuildContext context) =>
+              CupertinoPageScaffold(
+                navigationBar: CupertinoNavigationBar(
+                  middle: Text('Page 1 of tabView $index')
+                )
+              , child: Column(
+                  children: <Widget>[
+                    SizedBox(height: 100)
+                  , CupertinoButton(
+                      child: Text('Next page is self home page')
+                    , onPressed: () {
+                        Navigator.of(context)
+                        .pushNamed('/home')
+                        ;
+                      }
+                    )
+                  , CupertinoButton(
+                      child: Text('Next page is home home page')
+                    , onPressed: () {
+                        Navigator.of(
+                          context
+                        , rootNavigator: true
+                        )
+                        .pushNamed('/home')
+                        ;
+                      }
+                    )
+                  ]
+                )
+              )
+          )
+      )
+    )
+  ;
+
 }

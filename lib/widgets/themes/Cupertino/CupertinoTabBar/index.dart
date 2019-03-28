@@ -1,8 +1,16 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show
+  StatefulWidget
+, State
+, Widget
+, BuildContext
+;
+import '../../../../components/widget_demo.dart' show
+  WidgetDemo
+;
+import 'demo.dart' show
+  CupertinoTabBarDemo
+;
 
-import 'package:flutter_go/components/widget_demo.dart';
-
-import 'demo.dart';
 const Text0 = '''
 ### **简介**
 > ios风格下底部导航组件.
@@ -18,28 +26,35 @@ const Text0 = '''
 > If the given backgroundColor's opacity is not 1.0 (which is the case by default), it will produce a blurring effect to the content behind it.
 
 本人试了很多次. 也没有发现这个Blur Effect是怎么触发的, 如果有人了解, 欢迎提PR.
-''';
-
+'''
+;
 
 class Demo extends StatefulWidget {
   static const String routeName =
-      '/element/themes/Cupertino/CupertinoTabBar';
+    '/element/themes/Cupertino/CupertinoTabBar'
+  ;
 
   @override
-  State<StatefulWidget> createState() => _DemoState();
+  State<StatefulWidget> createState() =>
+    _DemoState()
+  ;
 }
 
 class _DemoState extends State<Demo> {
+
   @override
-  Widget build(BuildContext context) {
-    return WidgetDemo(
-      title: 'CupertinoTabBar',
-      codeUrl: 'themes/Cupertino/CupertinoTabBar/demo.dart',
-      docUrl: 'https://docs.flutter.io/flutter/cupertino/CupertinoTabBar-class.html',
-      contentList: [
-        Text0,
-        CupertinoTabBarDemo()
-      ],
-    );
-  }
+  Widget build(BuildContext context) =>
+    WidgetDemo(
+      title: 'CupertinoTabBar'
+    , codeUrl:
+        'themes/Cupertino/CupertinoTabBar/demo.dart'
+    , docUrl:
+        'https://docs.flutter.io/flutter/cupertino/CupertinoTabBar-class.html'
+    , contentList: [
+        Text0
+      , CupertinoTabBarDemo()
+      ]
+    )
+  ;
+
 }

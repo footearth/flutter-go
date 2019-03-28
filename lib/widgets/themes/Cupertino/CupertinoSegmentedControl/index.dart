@@ -1,7 +1,16 @@
-import 'package:flutter/material.dart';
-
-import 'package:flutter_go/components/widget_demo.dart';
-import 'demo.dart';
+import 'package:flutter/material.dart' show
+  StatefulWidget
+, State
+, Widget
+, BuildContext
+, SizedBox
+;
+import '../../../../components/widget_demo.dart' show
+  WidgetDemo
+;
+import 'demo.dart' show
+  CupertinoSegmentedControlDemo
+;
 
 const Text0 = '''
 ### **简介**
@@ -18,29 +27,36 @@ const Text0 = '''
 整个组件的高度, 取决于Map列表中Widget中最高的. 整个组件的宽度, 取决于Map列表中widget中最宽的 * Map的长度.
 
 样式支持用户自定义.
-''';
-
+'''
+;
 
 class Demo extends StatefulWidget {
   static const String routeName =
-      '/element/themes/Cupertino/CupertinoSegmentedControl';
+    '/element/themes/Cupertino/CupertinoSegmentedControl'
+  ;
 
   @override
-  State<StatefulWidget> createState() => _DemoState();
+  State<StatefulWidget> createState() =>
+    _DemoState()
+  ;
 }
 
 class _DemoState extends State<Demo> {
+
   @override
-  Widget build(BuildContext context) {
-    return WidgetDemo(
-      title: 'CupertinoSegmentedControl',
-      codeUrl: '/hemes/Cupertino/CupertinoSegmentedControl/demo.dart',
-      docUrl: 'https://docs.flutter.io/flutter/cupertino/CupertinoSegmentedControl-class.html',
-      contentList: [
-        Text0,
-        CupertinoSegmentedControlDemo(),
-        SizedBox(height: 100),
-      ],
-    );
-  }
+  Widget build(BuildContext context) =>
+    WidgetDemo(
+      title: 'CupertinoSegmentedControl'
+    , codeUrl:
+        '/hemes/Cupertino/CupertinoSegmentedControl/demo.dart'
+    , docUrl:
+        'https://docs.flutter.io/flutter/cupertino/CupertinoSegmentedControl-class.html'
+    , contentList: [
+        Text0
+      , CupertinoSegmentedControlDemo()
+      , SizedBox(height: 100)
+      ]
+    )
+  ;
+
 }

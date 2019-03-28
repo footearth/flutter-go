@@ -1,8 +1,16 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show
+  StatefulWidget
+, State
+, Widget
+, BuildContext
+;
+import '../../../../components/widget_demo.dart' show
+  WidgetDemo
+;
+import 'demo.dart' show
+  CupertinoTabScaffoldDemo
+;
 
-import 'package:flutter_go/components/widget_demo.dart';
-
-import 'demo.dart';
 const Text0 = '''
 ### **简介**
 
@@ -24,28 +32,35 @@ const Text0 = '''
 ### **基本用法**
 
 
-''';
-
+'''
+;
 
 class Demo extends StatefulWidget {
   static const String routeName =
-      '/element/themes/Cupertino/CupertinoTabScaffold';
+    '/element/themes/Cupertino/CupertinoTabScaffold'
+  ;
 
   @override
-  State<StatefulWidget> createState() => _DemoState();
+  State<StatefulWidget> createState() =>
+    _DemoState()
+  ;
 }
 
 class _DemoState extends State<Demo> {
+
   @override
-  Widget build(BuildContext context) {
-    return WidgetDemo(
-      title: 'CupertinoTabScaffold',
-      codeUrl: 'themes/Cupertino/CupertinoTabScaffold/demo.dart',
-      docUrl: 'https://docs.flutter.io/flutter/cupertino/CupertinoTabScaffold-class.html',
-      contentList: [
-        Text0,
-        CupertinoTabScaffoldDemo()
-      ],
-    );
-  }
+  Widget build(BuildContext context) =>
+    WidgetDemo(
+      title: 'CupertinoTabScaffold'
+    , codeUrl:
+        'themes/Cupertino/CupertinoTabScaffold/demo.dart'
+    , docUrl:
+        'https://docs.flutter.io/flutter/cupertino/CupertinoTabScaffold-class.html'
+    , contentList: [
+        Text0
+      , CupertinoTabScaffoldDemo()
+      ]
+    )
+  ;
+
 }

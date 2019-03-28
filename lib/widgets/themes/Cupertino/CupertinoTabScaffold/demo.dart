@@ -5,73 +5,110 @@
 /// email: sanfan.hx@alibaba-inc.com
 /// target:  CupertinoTabBar
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show
+  StatefulWidget
+, State
+, Widget
+, BuildContext
+, SizedBox
+, BottomNavigationBarItem
+, Text
+, Icon
+, Icons
+, Center
+, Navigator 
+;
+import 'package:flutter/cupertino.dart' show
+  CupertinoTabScaffold
+, CupertinoTabBar
+, CupertinoTabView
+, CupertinoPageScaffold
+, CupertinoNavigationBar
+, CupertinoButton
+, CupertinoPageRoute
+;
 
 class CupertinoTabScaffoldDemo extends StatefulWidget {
-  _Demo createState() => _Demo();
+  _Demo createState() =>
+    _Demo()
+  ;
 }
 
 class _Demo extends State<CupertinoTabScaffoldDemo> {
-  int index = 0;
+
+  int index = 0
+  ;
 
   changeIndex(int _index) {
-    this.setState(() {
-      index = _index;
-    });
+    this.setState( () {
+      index = _index
+      ;
+    }
+    )
+    ;
   }
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 500,
-      child: CupertinoTabScaffold(
+
+  Widget build(BuildContext context) =>
+    SizedBox(
+      height: 500
+    , child: CupertinoTabScaffold(
+
         tabBar: CupertinoTabBar(
           items: <BottomNavigationBarItem> [
             BottomNavigationBarItem(
-              title: Text("1"),
-              icon: Icon(Icons.add),
-            ),
-            BottomNavigationBarItem(
-              title: Text("2"),
-              icon: Icon(Icons.add),
+              title: Text("1")
+            , icon: Icon(Icons.add)
             )
-          ],
-        ),
-        tabBuilder: (BuildContext context, int index) {
-          return CupertinoTabView(
-            builder: (BuildContext context) {
-              return CupertinoPageScaffold(
+          , BottomNavigationBarItem(
+              title: Text("2")
+            , icon: Icon(Icons.add)
+            )
+          ]
+        )
+      ,
+        tabBuilder: (
+          BuildContext context
+        , int index
+        ) =>
+          CupertinoTabView(
+            builder: (BuildContext context) =>
+              CupertinoPageScaffold(
                 navigationBar: CupertinoNavigationBar(
-                  middle: Text('Page 1 of tab $index'),
-                ),
-                child: Center(
+                  middle: Text('Page 1 of tab $index')
+                )
+              , child: Center(
                   child: CupertinoButton(
-                    child: Text('Next page = $index'),
-                    onPressed: () {
-                      Navigator.of(context).push(
+                    child: Text('Next page = $index')
+                  , onPressed: () {
+                      Navigator.of(context)
+                      .push(
                         CupertinoPageRoute<void>(
-                          builder: (BuildContext context) {
-                            return CupertinoPageScaffold(
+                          builder: (BuildContext context) =>
+                            CupertinoPageScaffold(
                               navigationBar: CupertinoNavigationBar(
-                                middle: Text('Page 2 of tab $index'),
-                              ),
-                              child: Center(
+                                middle: Text('Page 2 of tab $index')
+                              )
+                            , child: Center(
                                 child: CupertinoButton(
-                                  child: const Text('Back'),
-                                  onPressed: () { Navigator.of(context).pop(); },
-                                ),
-                              ),
-                            );
-                          },
-                        ),
-                      );
-                    },
-                  ),
-                ),
-              );
-            },
-          );
-        },
-      ),
-    );
-  }
+                                  child: const Text('Back')
+                                , onPressed: () {
+                                    Navigator.of(context)
+                                    .pop()
+                                    ;
+                                  }
+                                )
+                              )
+                            )
+                        )
+                      )
+                      ;
+                    }
+                  )
+                )
+              )
+          )
+      )
+    )
+  ;
+
 }

@@ -12,7 +12,7 @@ import 'package:flutter/material.dart' show
 , BuildContext
 , SizedBox
 ;
-import 'package:flutter_go/components/widget_demo.dart' show
+import '../../../../components/widget_demo.dart' show
   WidgetDemo
 ;
 import './demo.dart' as demoBox
