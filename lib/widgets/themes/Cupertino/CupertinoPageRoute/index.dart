@@ -5,10 +5,18 @@
 /// email: zhu.yan@alibaba-inc.com
 /// target: CupertinoPageRoute 的示例
 
-import 'package:flutter/material.dart';
-
-import 'package:flutter_go/components/widget_demo.dart';
-import './demo.dart' as demoBox;
+import 'package:flutter/material.dart' show
+  StatefulWidget 
+, State
+, Widget
+, BuildContext
+, SizedBox
+;
+import 'package:flutter_go/components/widget_demo.dart' show
+  WidgetDemo
+;
+import './demo.dart' as demoBox
+;
 
 const String content0 = '''
 ### **简介**
@@ -16,32 +24,40 @@ const String content0 = '''
 - 页面从右侧滑入，然后反向退出。当另一页进入覆盖它时，视差中的页面也会向左移动;
 - 页面从底部滑入，然后反向退出，全屏 dialogs 没有视差效果;
 - 默认情况下，当切换路由被其他路由替换时，前一个路由将保留在内存中。若要在不需要时释放所有资源，请将 maintainstate 设置为 false;
-''';
+'''
+;
 
 const String content1 = '''
 ### **基本用法**
 > CupertinoPageRoute 的一个示例
 - 通常被 CupertinoPageScaffold 包裹
-''';
+'''
+;
 
 class Demo extends StatefulWidget {
-  static const String routeName = '/themes/Cupertino/CupertinoPageRoute';
-  _DemoState createState() => _DemoState();
+  static const String routeName =
+    '/themes/Cupertino/CupertinoPageRoute'
+  ;
+  _DemoState createState() =>
+    _DemoState()
+  ;
 }
 
 class _DemoState extends State<Demo> {
   @override
-  Widget build(BuildContext context) {
-    return WidgetDemo(
+  Widget build(BuildContext context) =>
+    WidgetDemo(
       contentList: [
-        content0,
-        content1,
-        demoBox.CupertinoPageRouteFullDefault(),
-        SizedBox(height:50)
-      ],
-      title: 'CupertinoPageRoute',
-      docUrl: 'https://docs.flutter.io/flutter/cupertino/CupertinoPageRoute-class.html',
-      codeUrl: 'themes/Cupertino/CupertinoPageRoute/demo.dart',
-    );
-  }
+        content0
+      , content1
+      , demoBox.CupertinoPageRouteFullDefault()
+      , SizedBox(height:50)
+      ]
+    , title: 'CupertinoPageRoute'
+    , docUrl:
+        'https://docs.flutter.io/flutter/cupertino/CupertinoPageRoute-class.html'
+    , codeUrl: 'themes/Cupertino/CupertinoPageRoute/demo.dart'
+    )
+  ;
+
 }

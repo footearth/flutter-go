@@ -14,7 +14,8 @@ import 'package:flutter/material.dart' show
 import '../../../../components/widget_demo.dart' show
   WidgetDemo
 ;
-import './demo.dart' as demoBox
+import './demo.dart' as
+  demoBox
 ;
 
 const String content0 = '''
