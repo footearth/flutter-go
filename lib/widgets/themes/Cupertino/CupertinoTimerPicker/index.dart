@@ -1,7 +1,15 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_go/components/widget_demo.dart';
-
-import 'demo.dart';
+import 'package:flutter/material.dart' show
+  StatefulWidget
+, State
+, Widget
+, BuildContext
+;
+import '../../../../components/widget_demo.dart' show
+  WidgetDemo
+;
+import 'demo.dart' show
+  CupertinoTimerPickerDemo
+;
 
 const Text0 = '''
 ### **简介**
@@ -24,25 +32,35 @@ const Text0 = '''
 - onTimerDurationChanged 时间改变后的回调
 - secondInterval  秒数间隔, 与minuteInterval同
 
-''';
+'''
+;
 
 class Demo extends StatefulWidget {
   static const String routeName =
-      '/element/themes/Cupertino/CupertinoTimerPicker';
+    '/element/themes/Cupertino/CupertinoTimerPicker'
+  ;
 
   @override
-  State<StatefulWidget> createState() => _DemoState();
+  State<StatefulWidget> createState() =>
+    _DemoState()
+  ;
 }
 
 class _DemoState extends State<Demo> {
+
   @override
-  Widget build(BuildContext context) {
-    return WidgetDemo(
-      title: 'CupertinoTimerPicker',
-      codeUrl: 'themes/Cupertino/CupertinoTimerPicker/demo.dart',
-      docUrl:
-          'https://docs.flutter.io/flutter/cupertino/CupertinoTimerPicker-class.html',
-      contentList: [Text0, CupertinoTimerPickerDemo()],
-    );
-  }
+  Widget build(BuildContext context) =>
+    WidgetDemo(
+      title: 'CupertinoTimerPicker'
+    , codeUrl:
+        'themes/Cupertino/CupertinoTimerPicker/demo.dart'
+    , docUrl:
+        'https://docs.flutter.io/flutter/cupertino/CupertinoTimerPicker-class.html'
+    , contentList: [
+        Text0
+      , CupertinoTimerPickerDemo()
+      ]
+    )
+  ;
+
 }
