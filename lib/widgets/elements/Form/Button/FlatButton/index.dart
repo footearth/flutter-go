@@ -7,7 +7,7 @@
 /// 对应文档地址:https://docs.flutter.io/flutter/material/FlatButton-class.html
 
 import 'package:flutter/material.dart';
-import 'package:flutter_go/components/widget_demo.dart';
+import 'package:flutter_go/components/widget_demo/index.dart';
 
 import './demo.dart' as flatButton;
 

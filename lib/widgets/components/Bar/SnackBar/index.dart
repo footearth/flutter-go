@@ -6,7 +6,7 @@
 /// target: SnackBar 的示例
 import 'package:flutter/material.dart';
 
-import 'package:flutter_go/components/widget_demo.dart';
+import 'package:flutter_go/components/widget_demo/index.dart';
 import './demo.dart' as SnackBarDemo;
 
 const String _Text0 =

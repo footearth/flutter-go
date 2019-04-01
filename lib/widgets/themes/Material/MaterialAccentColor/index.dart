@@ -5,7 +5,7 @@ import 'package:flutter/material.dart' show
 , BuildContext
 ;
 
-import '../../../../components/widget_demo.dart' show
+import '../../../../components/widget_demo/index.dart' show
   WidgetDemo
 ;
 import '../../../themes/Material/MaterialColor/demo.dart' show

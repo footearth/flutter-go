@@ -5,7 +5,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:flutter_go/components/widget_demo.dart';
+import 'package:flutter_go/components/widget_demo/index.dart';
 
 const String contentText0 = '''
 ### **非Widget 待删除**

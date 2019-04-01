@@ -9,7 +9,7 @@ import 'package:flutter/material.dart' show
 , BuildContext
 , Widget
 ;
-import '../../../../components/widget_demo.dart' show
+import '../../../../components/widget_demo/index.dart' show
   WidgetDemo
 ;
 import './demo.dart' as demoBox;

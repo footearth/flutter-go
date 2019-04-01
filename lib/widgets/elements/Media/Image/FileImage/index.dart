@@ -5,7 +5,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:flutter_go/components/widget_demo.dart';
+import 'package:flutter_go/components/widget_demo/index.dart';
 import './file_image_demo.dart';
 
 const contentText0 = '''

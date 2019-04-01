@@ -4,7 +4,7 @@
 /// @Last Modified time: 2019-01-08 16:15:20
 
 import 'package:flutter/material.dart';
-import 'package:flutter_go/components/widget_demo.dart';
+import 'package:flutter_go/components/widget_demo/index.dart';
 import 'demo.dart';
 
 const String content0 = '''

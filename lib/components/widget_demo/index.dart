@@ -7,49 +7,42 @@ import 'package:flutter/material.dart' show
 , State
 , GlobalKey
 , ScaffoldState
-, SizedBox
 , SnackBar
 , Text
 , BuildContext
 , Icons
 , Scaffold
-, AppBar
-, IconButton
-, Navigator
-, ModalRoute
-, Icon
-, PopupMenuButton
-, PopupMenuEntry
-, PopupMenuItem
-, ListTile
-, PopupMenuDivider
 , Container
 , EdgeInsets
 , ListView
 , Column
 , required
 ;
-import '../routers/application.dart' show
+
+import '../../routers/application.dart' show
   Application
 ;
-import '../routers/routers.dart' show
+import '../../routers/routers.dart' show
   Routes
 ;
-import '../components/markdown.dart' show
-  MarkdownBody
-;
-import '../model/collection.dart' show
+import '../../model/collection.dart' show
   CollectionControlModel
 , Collection
 ;
-import '../widgets/index.dart' show
+import '../../widgets/index.dart' show
   WidgetDemoList 
 ;
-import '../event/event_bus.dart' show
+import '../../event/event_bus.dart' show
   ApplicationEvent
 ;
-import '../event/event_model.dart' show
+import '../../event/event_model.dart' show
   CollectionEvent
+;
+import './ListWidget.dart' show 
+  buildContent
+;
+import './WidgetAppBar/index.dart' show
+  WidgetAppBar
 ;
 
 class WidgetDemo extends StatefulWidget {
@@ -102,38 +95,6 @@ class _WidgetDemoState extends State<WidgetDemo> {
   final GlobalKey<ScaffoldState> _scaffoldKey =
     GlobalKey<ScaffoldState>()
   ;
-
-  List<Widget> _buildContent() {
-
-    List<Widget> _list = [
-      SizedBox(
-        height: 10.0
-      )
-    ]
-    ;
-
-    widget.contentList.forEach( (item) {
-      if (item.runtimeType == String) {
-        _list.add(MarkdownBody(item))
-        ;
-        _list.add(
-          SizedBox(
-            height: 20.0
-          )
-        )
-        ;
-      } else {
-        _list.add(item)
-        ;
-      }
-    }
-    )
-    ;
-
-    return _list
-    ;
-
-  }
 
   @override
   void initState() {
@@ -268,7 +229,10 @@ class _WidgetDemoState extends State<WidgetDemo> {
       Application.router
       .navigateTo(
         context
-      , '${Routes.webViewPage}?title=${Uri.encodeComponent(widget.title)} Doc&&url=${Uri.encodeComponent(widget.docUrl)}'
+      , [
+        '${Routes.webViewPage}?title=${Uri.encodeComponent(widget.title)}'
+      , 'Doc&&url=${Uri.encodeComponent(widget.docUrl)}'
+      ].join(' ')
       )
       ;
     } else if (value == 'code') {
@@ -295,56 +259,15 @@ class _WidgetDemoState extends State<WidgetDemo> {
 
     return Scaffold(
       key: _scaffoldKey
-
-    , appBar: AppBar(
-        title: Text(widget.title)
-      , actions: <Widget>[
-          IconButton(
-            tooltip: 'goBack home'
-          , onPressed: () {
-              Navigator.popUntil(
-                context
-              , ModalRoute.withName('/')
-              )
-              ;
-            }
-          , icon: Icon(Icons.home)
-          )
-        , IconButton(
-            tooltip: 'collection'
-          , onPressed: _getCollection
-          , icon: Icon(_collectionIcons)
-          )
-        , PopupMenuButton<String>(
-            onSelected: _selectValue
-          , itemBuilder: (BuildContext context) =>
-              <PopupMenuEntry<String>>[
-                const PopupMenuItem<String>(
-                  value: 'doc'
-                , child: ListTile(
-                    leading: Icon(
-                      Icons.library_books
-                    , size: 22.0
-                    )
-                  , title: Text('查看文档')
-                  )
-                )
-              , const PopupMenuDivider()
-              , const PopupMenuItem<String>(
-                  value: 'code'
-                , child: ListTile(
-                    leading: Icon(
-                      Icons.code
-                    , size: 22.0
-                    )
-                  , title: Text('查看Demo')
-                  )
-                )
-              ]
-          )
-        ]
+    , 
+      appBar: WidgetAppBar (
+        title: widget.title
+      , collectionIcons: _collectionIcons
+      , getCollection: _getCollection
+      , selectValue: _selectValue
       )
-    , body: Container(
+    ,
+      body: Container(
         padding: const EdgeInsets.symmetric(
           vertical: 10.0
         , horizontal: 15.0
@@ -354,7 +277,7 @@ class _WidgetDemoState extends State<WidgetDemo> {
         , padding: const EdgeInsets.all(0.0)
         , children: <Widget>[
             Column(
-              children: _buildContent()
+              children: buildContent(widget)
             )
           ]
         )

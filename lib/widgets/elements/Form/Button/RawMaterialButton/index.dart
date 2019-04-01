@@ -10,7 +10,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import 'package:flutter_go/components/widget_demo.dart';
+import 'package:flutter_go/components/widget_demo/index.dart';
 import './demo.dart' as rawMaterialButton;
 
 const String _rawMaterialText0 =

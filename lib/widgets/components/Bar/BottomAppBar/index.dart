@@ -5,7 +5,7 @@
 /// email: zhu.yan@alibaba-inc.com
 /// target: BottomAppBar 的示例
 
-import 'package:flutter_go/components/widget_demo.dart';
+import 'package:flutter_go/components/widget_demo/index.dart';
 
 import 'package:flutter/material.dart';
 
